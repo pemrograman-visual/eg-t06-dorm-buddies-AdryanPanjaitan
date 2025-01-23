@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="T06"/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-12-17 03:10:16 PM"/>
+        <attribute name="created" value="TGVub3ZvO0xBUFRPUC1RUTlFUzhTUjsyMDI0LTEyLTA0OzAzOjMyOjEwIFBNOzI5OTY="/>
+        <attribute name="edited" value="TGVub3ZvO0xBUFRPUC1RUTlFUzhTUjsyMDI0LTEyLTA0OzA0OjA2OjI3IFBNOzE7MzExNA=="/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtSTZHUDRWTU47MjAyNC0xMi0xNzswMzoxMDoxNiBQTTsyOzI3Nzk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="name" type="String" array="True" size="4"/>
+            <declare name="usia" type="Integer" array="True" size="4"/>
+            <declare name="asaldaerah" type="String" array="True" size="4"/>
+            <call expression="fungsi1(name,usia,asaldaerah)"/>
+            <call expression="fungsi2(name,usia,asaldaerah)"/>
+            <call expression="fungsi3(name,usia,asaldaerah)"/>
+            <call expression="lihat(name,usia,asaldaerah)"/>
+            <call expression="hapus(name,usia,asaldaerah)"/>
+            <call expression="ubah(name,usia,asaldaerah)"/>
+        </body>
+    </function>
+    <function name="cari" type="None" variable="">
+        <parameters>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="j" type="Integer" array="False" size=""/>
+            <declare name="nama" type="String" array="False" size=""/>
+            <input variable="nama"/>
+            <for variable="j" start="0" end="3" direction="inc" step="1">
+                <if expression="nama=name[j]">
+                    <then>
+                        <output expression="&quot;Buddy ditemukan:&quot;&amp;name[j]&amp;&quot;,&quot;&amp;usia[j]&amp;&quot;,&quot;&amp;asaldaerah[j]" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;buddy tidak ditemukan&quot;" newline="True"/>
+                    </else>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="fungsi1" type="None" variable="">
+        <parameters>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="3" direction="inc" step="1">
+                <assign variable="name[i]" expression="&quot;&quot;"/>
+            </for>
+            <for variable="i" start="0" end="3" direction="inc" step="1">
+                <assign variable="usia[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="3" direction="inc" step="1">
+                <assign variable="asaldaerah[i]" expression="&quot;&quot;"/>
+            </for>
+        </body>
+    </function>
+    <function name="fungsi2" type="None" variable="">
+        <parameters>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="j, k" type="Integer" array="False" size=""/>
+            <for variable="j" start="0" end="3" direction="inc" step="1">
+                <input variable="name[j]"/>
+                <if expression="name[j]=&quot;---&quot;">
+                    <then>
+                        <assign variable="name[j]" expression="&quot;&quot;"/>
+                        <assign variable="k" expression="j"/>
+                        <assign variable="j" expression="4"/>
+                    </then>
+                    <else>
+                        <assign variable="k" expression="j"/>
+                        <input variable="usia[j]"/>
+                        <input variable="asaldaerah[j]"/>
+                    </else>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="fungsi3" type="None" variable="">
+        <parameters>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="x" type="Integer" array="False" size=""/>
+            <for variable="x" start="0" end="3" direction="inc" step="1">
+                <output expression="&quot;Buddy berhasil ditambahkan :&quot;&amp;name[x]&amp;&quot;,&quot;&amp;usia[x]&amp;&quot;,&quot;&amp;asaldaerah[x]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="hapus" type="None" variable="">
+        <parameters>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="j" type="Integer" array="False" size=""/>
+            <declare name="nama" type="String" array="False" size=""/>
+            <input variable="nama"/>
+            <for variable="j" start="0" end="3" direction="inc" step="1">
+                <if expression="nama=name[j]">
+                    <then>
+                        <assign variable="name[j]" expression="&quot;&quot;"/>
+                        <assign variable="usia[j]" expression="0"/>
+                        <assign variable="asaldaerah[j]" expression="&quot;&quot;"/>
+                        <output expression="&quot;Buddy &quot;&amp;nama&amp;&quot; telah dihapus&quot;" newline="True"/>
+                        <call expression="lihat(name,usia,asaldaerah)"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="lihat" type="None" variable="">
+        <parameters>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="x" type="Integer" array="False" size=""/>
+            <for variable="x" start="0" end="3" direction="inc" step="1">
+                <output expression="&quot;Daftar buddy:&quot;&amp;name[x]&amp;&quot;,&quot;&amp;usia[x]&amp;&quot;,&quot;&amp;asaldaerah[x]" newline="True"/>
+            </for>
+            <call expression="cari(name,usia,asaldaerah)"/>
+        </body>
+    </function>
+    <function name="statistik" type="None" variable="">
+        <parameters>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body/>
+    </function>
+    <function name="ubah" type="None" variable="">
+        <parameters>
+            <parameter name="name" type="String" array="True"/>
+            <parameter name="usia" type="Integer" array="True"/>
+            <parameter name="asaldaerah" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="j, usiabaru" type="Integer" array="False" size=""/>
+            <declare name="nama" type="String" array="False" size=""/>
+            <input variable="nama"/>
+            <for variable="j" start="0" end="3" direction="inc" step="1">
+                <if expression="nama=name[j]">
+                    <then>
+                        <input variable="usiabaru"/>
+                        <output expression="&quot;Informasi &quot;&amp;name[j]&amp;&quot; berhasil diperbaharui:&quot;&amp;name[j]&amp;&quot;,&quot;&amp;usiabaru&amp;&quot;,&quot;&amp;asaldaerah[j]" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
